@@ -20,5 +20,10 @@ pipeline {
            steps{
               bat "dotnet build TodoApi.Swashbuckle\\TodoApi.csproj --configuration Release"
             }
-         }        
+         }      
+        stage('Publish'){
+             steps{
+               bat "dotnet publish TodoApi.Swashbuckle\\TodoApi.csproj"
+             }
+}        
 }
