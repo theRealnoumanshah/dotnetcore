@@ -10,5 +10,15 @@ pipeline {
            steps{
               bat "dotnet restore TodoApi.Swashbuckle\\TodoApi.csproj"
              }
-          }        
+          }
+        stage('Clean'){
+            steps{
+                bat "dotnet clean TodoApi.Swashbuckle\\TodoApi.csproj"
+             }
+           }
+        stage('Build'){
+           steps{
+              bat "dotnet build TodoApi.Swashbuckle\\TodoApi.csproj --configuration Release"
+            }
+         }        
 }
