@@ -1,10 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                bat 'set'
-            }
-        }
+stage('Checkout') {
+    steps {
+     git credentialsId: '', url: 'https://github.com/theRealnoumanshah/dotnetcore.git', branch: 'master'
+     }
     }
 }
