@@ -1,9 +1,14 @@
 pipeline {
     agent any
     stages {
-stage('Checkout') {
-    steps {
-     git credentialsId: '', url: 'https://github.com/theRealnoumanshah/dotnetcore.git', branch: 'master'
-     }
-    }
+        stage('Checkout') {
+                steps {
+                 git credentialsId: '', url: 'https://github.com/theRealnoumanshah/dotnetcore.git', branch: 'master'
+                 }
+            }
+        stage('Restore packages'){
+           steps{
+              bat "dotnet restore TodoApi.Swashbuckle\\TodoApi.csproj"
+             }
+          }        
 }
